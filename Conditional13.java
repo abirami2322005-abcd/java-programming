@@ -1,80 +1,89 @@
 import java.util.Scanner;
 public class Conditional13 {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-
-        String membershipTier=sc.nextLine();
-        int contractMonths=sc.nextInt();
+        String studentStatus=sc.nextLine();
+        int creditHours=sc.nextInt();
         sc.nextLine();
-        String accessLevel=sc.nextLine();
-        String addOns=sc.nextLine();
-        double baseFee=0;
-        int contractDiscount=0;
-        double accessFee=0;
-        double addOnFee=0;
-        if (membershipTier.equals("Basic")) {
-            baseFee=40;
-        } else if (membershipTier.equals("Premium")) {
-            baseFee=80;
-        } else if (membershipTier.equals("Elite")) {
-            baseFee=120;
-        } else if (membershipTier.equals("VIP")) {
-            baseFee=150;
+        String programType=sc.nextLine();
+        String residency=sc.nextLine();
+        double baseTuition=0;
+        double multiplier=0;
+        double programFee=0;
+        double activityFee=0;
+        String category="";
+        if (programType.equals("Undergraduate")) {
+            baseTuition=350;
+        } 
+        else if (programType.equals("Graduate")) {
+            baseTuition=550;
+        } 
+        else if (programType.equals("Professional")) {
+            baseTuition=800;
         }
-        if (contractMonths==1) {
-            contractDiscount=0;
-        } else if (contractMonths==6) {
-            contractDiscount=10;
-        } else if (contractMonths==12) {
-            contractDiscount=15;
-        } else if (contractMonths==24) {
-            contractDiscount=25;
+        if (residency.equals("In-State")) {
+            multiplier=1.0;
+        } 
+        else if (residency.equals("Out-of-State")) {
+            multiplier=2.5;
+        } 
+        else if (residency.equals("International")) {
+            multiplier=3.0;
         }
-        if (accessLevel.equals("Single-Location")) {
-            accessFee=0;
-        } else if (accessLevel.equals("Regional")) {
-            accessFee=20;
-        } else if (accessLevel.equals("Nationwide")) {
-            accessFee=50;
+        if (studentStatus.equals("Full-Time")) {
+            if (programType.equals("Undergraduate")) {
+                programFee=500;
+            } 
+            else if (programType.equals("Graduate")) {
+                programFee=750;
+            } 
+            else if (programType.equals("Professional")) {
+                programFee=1200;
+            }
+        } 
+        else if (studentStatus.equals("Part-Time")) {
+            if (programType.equals("Undergraduate")) {
+                programFee=300;
+            } 
+            else if (programType.equals("Graduate")) {
+                programFee=750;
+            } 
+            else if (programType.equals("Professional")) {
+                programFee=900;
+            }
+        } 
+        else if (studentStatus.equals("Continuing-Education")) {
+            programFee=150;
         }
-        if (addOns.equals("None")) {
-            addOnFee=0;
-        } else if (addOns.equals("Personal-Training")) {
-            addOnFee=100;
-        } else if (addOns.equals("Classes")) {
-            addOnFee=50;
-        } else if (addOns.equals("Full-Package")) {
-            addOnFee=200;
+        if (studentStatus.equals("Full-Time")) {
+            activityFee=200;
+        } 
+        else if (studentStatus.equals("Part-Time")) {
+            activityFee=100;
+        } 
+        else if (studentStatus.equals("Continuing-Education")) {
+            activityFee=50;
         }
-        double discountedBase=baseFee*(1-contractDiscount/100.0);
-        double monthlyTotal=discountedBase+accessFee+addOnFee;
-        double contractTotal=monthlyTotal*contractMonths;
-        double monthToMonth=(baseFee+accessFee+addOnFee)*contractMonths;
-        double savings=monthToMonth-contractTotal;
-        String category;
-        if (monthlyTotal<60) {
-            category="Budget";
-        } else if(monthlyTotal<130) {
-            category="Standard";
-        } else if (monthlyTotal<250) {
+        double tuitionCost=creditHours*baseTuition*multiplier;
+        double totalFee=tuitionCost+programFee+activityFee;
+        if (studentStatus.equals("Continuing-Education")) {
+            category="Reduced";
+        } 
+        else if (residency.equals("Out-of-State") || residency.equals("International")) {
             category="Premium";
-        } else {
-            category="Luxury";
+        } 
+        else if (studentStatus.equals("Full-Time") && residency.equals("In-State")) {
+            category="Standard";
         }
-        System.out.println("Membership Tier: " + membershipTier);
-        System.out.println("Contract Length: " + contractMonths + " months");
-        System.out.println("Access Level: " + accessLevel);
-        System.out.println("Add-Ons: " + addOns);
-        System.out.println("Base Monthly Fee: $" + baseFee);
-        System.out.println("Contract Discount: " + contractDiscount + "%");
-        System.out.println("Access Fee: $" + accessFee);
-        System.out.println("Add-On Fee: $" + addOnFee);
-        System.out.println("Monthly Total: $" + monthlyTotal);
-        System.out.println("Contract Total: $" + contractTotal);
-        System.out.println("Savings vs Month-to-Month: $" + savings);
-        System.out.println("Membership Category: " + category);
-
-        sc.close();
+        System.out.println("Student Status: " + studentStatus);
+        System.out.println("Credit Hours: " + creditHours);
+        System.out.println("Program Type: " + programType);
+        System.out.println("Residency: " + residency);
+        System.out.println("Base Tuition Per Credit: $" + baseTuition);
+        System.out.println("Residency Multiplier: " + multiplier + "x");
+        System.out.println("Program Fee: $" + programFee);
+        System.out.println("Student Activity Fee: $" + activityFee);
+        System.out.println("Total Registration Fee: $" + totalFee);
+        System.out.println("Fee Category: " + category);
     }
 }
-
