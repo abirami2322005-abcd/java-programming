@@ -47,6 +47,7 @@ public class Conditional1{
         System.out.println("Loan Type: " + type);
         System.out.println("Decision: " + decision);
         System.out.println("Maximum Loan Amount: $" + maxLoan);
+        sc.close();
     }
 }
 
