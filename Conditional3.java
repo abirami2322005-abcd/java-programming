@@ -55,6 +55,7 @@ public class Conditional3 {
         System.out.println("Total Discount: " + totalDiscount + "%");
         System.out.println("Final Price: $" + finalPrice);
         System.out.println("Savings: $" + savings);
+        scan.close();
     }
 }
 
