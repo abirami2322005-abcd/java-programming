@@ -62,6 +62,7 @@ public class Conditional2 {
         System.out.println("Base:$ "+base);
         System.out.println("Risk:$ "+risk);
         System.out.println("Total Premieum:$ "+totalpremieum);
+        scan.close();
     }
     
 }
