@@ -38,6 +38,7 @@ public class Conditional{
         System.out.println("Bonus Percentage: " + bonusPercent + "%");
         System.out.println("Bonus Amount:$ " + bonusAmount);
         System.out.println("Status: " + status);
+        sc.close();
     }
 }
 
