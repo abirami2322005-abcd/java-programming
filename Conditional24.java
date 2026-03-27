@@ -85,5 +85,6 @@ public class Conditional24 {
         System.out.println("Total Monthly Cost: $" + totalCost);
         System.out.println("Potential Savings: $" + savings);
         System.out.println("Plan Category: " + planCategory);
+        sc.close();
     }
 }
