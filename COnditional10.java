@@ -49,5 +49,6 @@ public class COnditional10 {
         System.out.println("Final Amount: $" + finalAmount);
         System.out.println("Kitchen Priority: " + priority);
         System.out.println("Estimated Prep Time: " + prepTime + " minutes");
+        scan.close();
     }
 }
