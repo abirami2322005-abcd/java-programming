@@ -1,0 +1,15 @@
+class Number {
+    int value;
+}
+class PointerDemo {
+    public static void changeValue(Number obj) {
+        obj.value = 100;
+    }
+    public static void main(String[] args) {
+        Number n = new Number();
+        n.value = 50;
+        System.out.println("Before: " + n.value);
+        changeValue(n);
+        System.out.println("After: " + n.value);
+    }
+}
