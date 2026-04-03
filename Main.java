@@ -1,5 +1,19 @@
- public class Main{
+import java.util.Scanner;
+
+public class Main{
     public static void main(String[] args) {
-        System.out.println("hello world");
+        Scanner sc = new Scanner(System.in);
+        
+        int level = sc.nextInt();
+        
+        if (level > 900) {
+            System.out.println("Full");
+        } else if (level >= 600) {
+            System.out.println("Good");
+        } else {
+            System.out.println("Low");
+        }
+        
+        sc.close();
     }
 }
