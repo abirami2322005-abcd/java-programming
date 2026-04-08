@@ -11,6 +11,7 @@ public class Conditional4 {
         String category="None";
         double amount=0;
         if(gpa>=2.5){
+            
             if(type.equals("Merit")){
                 if(gpa>=3.&&extra>=80){
                     eligibility="Eligible";
@@ -72,6 +73,7 @@ public class Conditional4 {
         System.out.println("Eligibility: " + eligibility);
         System.out.println("Award Amount: $" + amount);
         System.out.println("Award Category: " + category);
+        sc.close();
     }
 }
 
