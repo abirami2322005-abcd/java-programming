@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Array {
-    public static void main(String[] args) {
+    public static void main(Main12[] args) {
         Scanner scan=new Scanner (System.in);
         int [] arr={10,20,30,40};
         int sum=0;
